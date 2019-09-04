@@ -1,0 +1,15 @@
+dependencies:
+  build:
+    - go:1.12.2  
+ci:
+  builds:
+    - name: test
+      build_target: default
+     
+build_targets:
+  - name: default
+    environment:
+      - TEST_ENV_IS_SET=1
+    commands:
+      - go build
+      - go test -v ./...
